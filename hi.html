@@ -85,12 +85,11 @@
     }
 
     .card-hover {
-      transform-style: preserve-3d;
       transition: transform 0.3s ease;
     }
 
     .card-hover:hover {
-      transform: rotateX(4deg) rotateY(-4deg);
+      transform: translateY(-3px);
     }
 
     .btn-primary {
@@ -135,14 +134,14 @@
       border-radius: 999px;
       background: linear-gradient(90deg, #6366f1, #06b6d4);
       box-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
-      width: 0;
+      width: 80%; /* temporary test */
       transition: width 1.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .skill-track {
       width: 100%;
       height: 6px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.2);
       border-radius: 999px;
     }
 
@@ -283,6 +282,42 @@
       transform: translateY(-5px);
     }
 
+    .gradient-border {
+      position: relative;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .cert-card {
+      background: linear-gradient(
+        135deg,
+        rgba(30, 41, 59, 0.95),
+        rgba(15, 23, 42, 0.95)
+      );
+      border-radius: 16px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 1px;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 10px 30px rgba(99, 102, 241, 0.3),
+        0 0 20px rgba(6, 182, 212, 0.2);
+    }
+
+    .cert-card .gradient-border {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 1rem;
+    }
+
     .tech-badge {
       font-size: 0.7rem;
       padding: 4px 8px;
@@ -346,6 +381,12 @@
 
     .gradient-border:hover::after {
       opacity: 1;
+    }
+
+    #training .gradient-border {
+      box-shadow: 
+        0 0 30px rgba(99, 102, 241, 0.2),
+        0 0 60px rgba(6, 182, 212, 0.1);
     }
 
     .fade-in {
@@ -678,13 +719,16 @@
   <section id="about" class="section relative">
     <div class="container">
       <h2 class="section-title section-header text-3xl sm:text-4xl font-bold">About Me</h2>
-      <div class="grid lg:grid-cols-3 gap-8">
+      <p class="text-blue-400 text-sm mb-4">AI • Data Analytics • Full Stack Development</p>
+      <div class="grid lg:grid-cols-3 gap-8 items-stretch">
         <div class="lg:col-span-2">
-          <div class="gradient-border p-8 card-hover">
-            <p id="about-text" class="text-lg text-gray-300 leading-relaxed">I am a Computer Science student passionate
-              about building intelligent web applications and solving real-world problems using data and AI. I
-              specialize in developing scalable solutions, analyzing complex datasets, and integrating modern AI tools
-              to create impactful products.</p>
+          <div class="gradient-border p-8 card-hover h-full flex flex-col justify-between">
+            <p id="about-text" class="text-lg text-gray-300 leading-relaxed">I am a Computer Science student focused on building AI-powered applications and data-driven solutions. I have hands-on experience developing full-stack projects, analyzing large datasets, and integrating modern AI tools to solve real-world problems. I aim to create scalable, impactful software that bridges data and intelligent systems.</p>
+            <ul class="mt-4 text-sm text-gray-400 space-y-1">
+              <li>✔ Built 7+ real-world projects (AI + Data + Web)</li>
+              <li>✔ Experienced in Python, Java, and full-stack development</li>
+              <li>✔ Strong problem-solving with DSA &amp; system thinking</li>
+            </ul>
             <div class="grid sm:grid-cols-3 gap-8 lg:gap-10 mt-8">
               <div class="text-center p-4">
                 <div class="text-3xl font-bold gradient-text">
@@ -696,7 +740,7 @@
               </div>
               <div class="text-center p-4">
                 <div class="text-3xl font-bold gradient-text">
-                  4
+                  10+
                 </div>
                 <div class="text-gray-400 text-sm mt-1">
                   Certifications
@@ -704,33 +748,33 @@
               </div>
               <div class="text-center p-4">
                 <div class="text-3xl font-bold gradient-text">
-                  7.69
+                  Top 15%
                 </div>
                 <div class="text-gray-400 text-sm mt-1">
-                  CGPA
+                  in Class
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="space-y-4">
-          <div class="gradient-border p-8 card-hover">
+        <div class="space-y-4 h-full flex flex-col justify-between">
+          <div class="gradient-border p-8 card-hover flex-1 flex flex-col justify-center">
             <div class="flex items-center gap-3 mb-3">
               <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
                 <i data-lucide="code-2" class="w-5 h-5 text-blue-400"></i>
               </div>
               <h3 class="font-semibold">Developer</h3>
             </div>
-            <p class="text-gray-400 text-sm">Building web apps &amp; software solutions</p>
+            <p class="text-gray-400 text-sm">Building scalable web apps using modern technologies → HTML, CSS, JS, React (if learning)</p>
           </div>
-          <div class="gradient-border p-8 card-hover">
+          <div class="gradient-border p-8 card-hover flex-1 flex flex-col justify-center">
             <div class="flex items-center gap-3 mb-3">
               <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
                 <i data-lucide="bar-chart-3" class="w-5 h-5 text-purple-400"></i>
               </div>
               <h3 class="font-semibold">Data Analyst</h3>
             </div>
-            <p class="text-gray-400 text-sm">Extracting insights from datasets</p>
+            <p class="text-gray-400 text-sm">Extracting insights from datasets → Pandas, NumPy, Visualization</p>
           </div>
           <div class="gradient-border p-8 card-hover">
             <div class="flex items-center gap-3 mb-3">
@@ -739,7 +783,7 @@
               </div>
               <h3 class="font-semibold">AI Enthusiast</h3>
             </div>
-            <p class="text-gray-400 text-sm">Exploring AI-powered solutions</p>
+            <p class="text-gray-400 text-sm">Exploring AI-powered solutions → LLMs, Generative AI, ML basics</p>
           </div>
         </div>
       </div>
@@ -920,17 +964,17 @@
 
     <div class="gradient-border p-8 max-w-3xl mx-auto text-center mt-12 card-hover relative group cursor-default">
       <h3 class="text-lg font-semibold mb-4 text-indigo-400 flex items-center justify-center gap-2"><i
-          data-lucide="rocket" class="w-5 h-5"></i> Currently Learning</h3>
+          data-lucide="rocket" class="w-5 h-5"></i> Currently Learning&nbsp;</h3>
       <div class="flex flex-wrap justify-center gap-4 mt-3">
         <span
           class="px-5 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 hover:scale-110 transition text-sm text-blue-300 flex items-center gap-2"><i
-            data-lucide="brain-circuit" class="w-4 h-4"></i> Machine Learning</span>
+            data-lucide="brain-circuit" class="w-4 h-4"></i> Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <span
           class="px-5 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 hover:scale-110 transition text-sm text-blue-300 flex items-center gap-2"><i
-            data-lucide="atom" class="w-4 h-4"></i> React.js</span>
+            data-lucide="atom" class="w-4 h-4"></i> React.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <span
           class="px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 hover:scale-110 transition text-sm text-blue-300 flex items-center gap-2"><i
-            data-lucide="database-zap" class="w-4 h-4"></i> Advanced SQL</span>
+            data-lucide="database-zap" class="w-4 h-4"></i> Advanced SQL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       </div>
     </div>
   </section>
@@ -938,126 +982,104 @@
   <section id="projects" class="section relative">
     <div class="container">
       <h2 class="section-title section-header text-3xl sm:text-4xl font-bold">Featured Projects</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Project 1 -->
-        <div class="project-card rounded-xl p-8 card-hover">
-          <div class="flex items-center justify-between mb-4">
-            <div
-              class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
-              <i data-lucide="file-text" class="w-6 h-6 text-white"></i>
-            </div><a href="https://github.com/eswar6718/cover-letter-generator" target="_blank"
-              rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors"> <i
-                data-lucide="external-link" class="w-5 h-5"></i> </a>
+        <div class="project-card rounded-2xl overflow-hidden card-hover flex flex-col h-full min-h-[480px]">
+          
+          <!-- IMAGE -->
+          <img src="images/coverletter.png" class="w-full h-52 object-cover">
+
+          <!-- CONTENT -->
+          <div class="p-6 flex flex-col flex-1 justify-between">
+
+            <div>
+              <h3 class="text-xl font-semibold mb-3">Cover Letter Generator</h3>
+
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                Generates personalized AI-powered cover letters using Gemini API, reducing manual writing effort by 80%.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Gemini API</span>
+              </div>
+
+              <a href="https://github.com/eswar6718/Cover_letter" target="_blank"
+                 class="text-cyan-400 text-sm hover:underline">
+                 🔗 View on GitHub
+              </a>
+            </div>
+
           </div>
-          <h3 class="text-xl font-semibold mb-2">Cover Letter Generator</h3>
-          <p class="text-gray-400 text-sm mb-4">A web application that generates AI-powered personalized cover letters
-            based on user input.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tech-badge">HTML</span> <span class="tech-badge">CSS</span> <span
-              class="tech-badge">JavaScript</span> <span class="tech-badge">Gemini API</span> <span
-              class="tech-badge">AI</span>
+
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card rounded-2xl overflow-hidden card-hover flex flex-col h-full min-h-[480px]">
+
+          <img src="images/rexus.png" class="w-full h-52 object-cover">
+
+          <div class="p-6 flex flex-col flex-1 justify-between">
+
+            <div>
+              <h3 class="text-xl font-semibold mb-3">Rexus Data Analysis</h3>
+
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                Analyzed 10,000+ records using Python and Pandas to uncover trends and improve insight accuracy by 25%.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Pandas</span>
+                <span class="tech-badge">Data Cleaning</span>
+                <span class="tech-badge">Visualization</span>
+              </div>
+
+              <a href="https://github.com/eswar6718/rexus_data" target="_blank"
+                 class="text-cyan-400 text-sm hover:underline">
+                 🔗 View on GitHub
+              </a>
+            </div>
+
           </div>
-        </div><!-- Project 2 -->
-        <div class="project-card rounded-xl p-8 card-hover">
-          <div class="flex items-center justify-between mb-4">
-            <div
-              class="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500 to-cyan-500 flex items-center justify-center">
-              <i data-lucide="bar-chart-2" class="w-6 h-6 text-white"></i>
-            </div><a href="https://github.com/eswar6718/rexus-data-analysis" target="_blank" rel="noopener noreferrer"
-              class="text-gray-400 hover:text-blue-400 transition-colors"> <i data-lucide="external-link"
-                class="w-5 h-5"></i> </a>
+
+        </div>
+        <!-- Project 3 -->
+        <div class="project-card rounded-2xl overflow-hidden card-hover flex flex-col h-full min-h-[480px]">
+
+          <img src="images/chess.png" class="w-full h-52 object-cover">
+
+          <div class="p-6 flex flex-col flex-1 justify-between">
+
+            <div>
+              <h3 class="text-xl font-semibold mb-3">Chess Match Analysis</h3>
+
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                Analyzed chess datasets to identify player strategies and move patterns using data visualization techniques.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-badge">Excel</span>
+                <span class="tech-badge">Pivot Tables</span>
+                <span class="tech-badge">Data Cleaning</span>
+                <span class="tech-badge">Visualization</span>
+              </div>
+
+              <a href="https://github.com/eswar6718/Chess_Analysis" target="_blank"
+                 class="text-cyan-400 text-sm hover:underline">
+                 🔗 View on GitHub
+              </a>
+            </div>
+
           </div>
-          <h3 class="text-xl font-semibold mb-2">Rexus Data Analysis</h3>
-          <p class="text-gray-400 text-sm mb-4">Analyzed 10,000+ records to identify trends and improve insights
-            accuracy by 25%.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tech-badge">Python</span> <span class="tech-badge">Pandas</span> <span class="tech-badge">Data
-              Cleaning</span> <span class="tech-badge">Visualization</span>
-          </div>
-        </div><!-- Project 3 -->
-        <div class="project-card rounded-xl p-8 card-hover">
-          <div class="flex items-center justify-between mb-4">
-            <div
-              class="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
-              <i data-lucide="trophy" class="w-6 h-6 text-white"></i>
-            </div><a href="https://github.com/eswar6718/chess-match-analysis" target="_blank" rel="noopener noreferrer"
-              class="text-gray-400 hover:text-blue-400 transition-colors"> <i data-lucide="external-link"
-                class="w-5 h-5"></i> </a>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Chess Match Analysis</h3>
-          <p class="text-gray-400 text-sm mb-4">Analyzed chess game datasets to identify player performance and move
-            patterns.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tech-badge">Excel</span> <span class="tech-badge">Pivot Tables</span> <span
-              class="tech-badge">Data Cleaning</span> <span class="tech-badge">Visualization</span>
-          </div>
-        </div><!-- Project 4 -->
-        <div class="project-card rounded-xl p-8 card-hover">
-          <div class="flex items-center justify-between mb-4">
-            <div
-              class="w-12 h-12 rounded-lg bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center">
-              <i data-lucide="heart" class="w-6 h-6 text-white"></i>
-            </div><a href="https://github.com/eswar6718/mental-health-checkin" target="_blank" rel="noopener noreferrer"
-              class="text-gray-400 hover:text-blue-400 transition-colors"> <i data-lucide="external-link"
-                class="w-5 h-5"></i> </a>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Mental Health Check-in</h3>
-          <p class="text-gray-400 text-sm mb-4">A Java console application for tracking mental well-being and mood
-            patterns.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tech-badge">Java</span> <span class="tech-badge">OOP</span> <span class="tech-badge">Data
-              Structures</span> <span class="tech-badge">Modular</span>
-          </div>
-        </div><!-- Project 5 -->
-        <div class="project-card rounded-xl p-8 card-hover">
-          <div class="flex items-center justify-between mb-4">
-            <div
-              class="w-12 h-12 rounded-lg bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center">
-              <i data-lucide="shield" class="w-6 h-6 text-white"></i>
-            </div><a href="https://github.com/eswar6718/privacy-preserving-ai" target="_blank" rel="noopener noreferrer"
-              class="text-gray-400 hover:text-blue-400 transition-colors"> <i data-lucide="external-link"
-                class="w-5 h-5"></i> </a>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Privacy-Preserving AI</h3>
-          <p class="text-gray-400 text-sm mb-4">AI research project focusing on reducing bias and improving privacy in
-            facial recognition.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tech-badge">AI</span> <span class="tech-badge">Blockchain</span> <span
-              class="tech-badge">Federated Learning</span> <span class="tech-badge">ML</span>
-          </div>
-        </div><!-- Project 6 -->
-        <div class="project-card rounded-xl p-8 card-hover">
-          <div class="flex items-center justify-between mb-4">
-            <div
-              class="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-              <i data-lucide="cloud-sun" class="w-6 h-6 text-white"></i>
-            </div><a href="https://github.com/eswar6718/weather-visualization" target="_blank" rel="noopener noreferrer"
-              class="text-gray-400 hover:text-blue-400 transition-colors"> <i data-lucide="external-link"
-                class="w-5 h-5"></i> </a>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Weather Visualization</h3>
-          <p class="text-gray-400 text-sm mb-4">Analyzed and visualized weather datasets using Python visualization
-            libraries.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tech-badge">Python</span> <span class="tech-badge">Pandas</span> <span
-              class="tech-badge">Matplotlib</span> <span class="tech-badge">Seaborn</span>
-          </div>
-        </div><!-- Project 7 -->
-        <div class="project-card rounded-xl p-8 card-hover md:col-span-2 lg:col-span-1">
-          <div class="flex items-center justify-between mb-4">
-            <div
-              class="w-12 h-12 rounded-lg bg-gradient-to-br from-violet-500 to-purple-500 flex items-center justify-center">
-              <i data-lucide="layout" class="w-6 h-6 text-white"></i>
-            </div><a href="https://github.com/eswar6718/task-manager-ui-ux" target="_blank" rel="noopener noreferrer"
-              class="text-gray-400 hover:text-blue-400 transition-colors"> <i data-lucide="external-link"
-                class="w-5 h-5"></i> </a>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Task Manager UI/UX</h3>
-          <p class="text-gray-400 text-sm mb-4">Designed a modern productivity app interface using Figma.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="tech-badge">Figma</span> <span class="tech-badge">UI/UX</span> <span
-              class="tech-badge">Design</span>
-          </div>
+
         </div>
       </div>
     </div>
@@ -1069,111 +1091,129 @@
       <h2 class="section-title section-header text-3xl sm:text-4xl font-bold">Certifications</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Oracle -->
-        <div class="gradient-border p-6 card-hover group">
-          <h4 class="font-semibold">OCI AI Foundations Associate</h4>
-          <p class="text-gray-400 text-sm">Oracle • 2026</p>
-
-          <div class="mt-3 text-sm text-gray-400 opacity-0 max-h-0 overflow-hidden 
-                      group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
-            📅 Feb 19, 2026  
-            <br>🧠 AI, ML, Cloud AI
+        <div class="cert-card gradient-border p-6 card-hover flex items-start gap-4">
+          <img src="images/oracle.png" alt="Oracle logo" class="w-10 h-10 object-contain mt-1">
+          <div class="flex-1">
+            <h4 class="font-semibold text-base mb-1">OCI AI Foundations Associate</h4>
+            <p class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-sm font-semibold">
+              Oracle • 2026
+            </p>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Learned fundamentals of AI, machine learning, and cloud-based AI services.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">🧠 AI, ML, Cloud AI</p>
           </div>
         </div>
 
-        <!-- Prompt Engineering -->
-        <div class="gradient-border p-6 card-hover group">
-          <h4 class="font-semibold">ChatGPT-4 Prompt Engineering</h4>
-          <p class="text-gray-400 text-sm">Infosys • 2025</p>
-
-          <div class="mt-3 text-sm text-gray-400 opacity-0 max-h-0 overflow-hidden 
-                      group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
-            📅 Aug 2, 2025  
-            <br>🧠 LLM, Prompting
+        <div class="cert-card gradient-border p-6 card-hover flex items-start gap-4">
+          <img src="images/infosys.png" alt="Infosys logo" class="w-10 h-10 object-contain mt-1">
+          <div class="flex-1">
+            <h4 class="font-semibold text-base mb-1">ChatGPT-4 Prompt Engineering</h4>
+            <p class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-sm font-semibold">
+              Infosys • 2025
+            </p>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Mastered prompt design techniques for effective interaction with LLMs.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">🧠 LLM, Prompting</p>
           </div>
         </div>
 
-        <!-- Gen AI Tools -->
-        <div class="gradient-border p-6 card-hover group">
-          <h4 class="font-semibold">Generative AI Tools</h4>
-          <p class="text-gray-400 text-sm">Infosys • 2025</p>
-
-          <div class="mt-3 text-sm text-gray-400 opacity-0 max-h-0 overflow-hidden 
-                      group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
-            📅 Aug 16, 2025  
-            <br>🧠 GenAI, Tools
+        <div class="cert-card gradient-border p-6 card-hover flex items-start gap-4">
+          <img src="images/infosys.png" alt="Infosys logo" class="w-10 h-10 object-contain mt-1">
+          <div class="flex-1">
+            <h4 class="font-semibold text-base mb-1">Generative AI Tools</h4>
+            <p class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-sm font-semibold">
+              Infosys • 2025
+            </p>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Explored various generative AI tools and their applications in modern workflows.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">🧠 GenAI, Tools</p>
           </div>
         </div>
 
-        <!-- No-Code AI -->
-        <div class="gradient-border p-6 card-hover group">
-          <h4 class="font-semibold">Build GenAI Apps (No-Code)</h4>
-          <p class="text-gray-400 text-sm">Udemy • 2025</p>
-
-          <div class="mt-3 text-sm text-gray-400 opacity-0 max-h-0 overflow-hidden 
-                      group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
-            📅 Aug 20, 2025  
-            <br>🧠 No-Code, AI Apps
+        <div class="cert-card gradient-border p-6 card-hover flex items-start gap-4">
+          <img src="images/udemy.png" alt="Udemy logo" class="w-10 h-10 object-contain mt-1">
+          <div class="flex-1">
+            <h4 class="font-semibold text-base mb-1">Build GenAI Apps (No-Code)</h4>
+            <p class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-sm font-semibold">
+              Udemy • 2025
+            </p>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Built generative AI applications without coding using no-code platforms.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">🧠 No-Code, AI Apps</p>
           </div>
         </div>
 
-        <!-- Automata -->
-        <div class="gradient-border p-6 card-hover group">
-          <h4 class="font-semibold">Computational Theory</h4>
-          <p class="text-gray-400 text-sm">Infosys • 2025</p>
-
-          <div class="mt-3 text-sm text-gray-400 opacity-0 max-h-0 overflow-hidden 
-                      group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
-            📅 Aug 26, 2025  
-            <br>🧠 Automata, FLAT
+        <div class="cert-card gradient-border p-6 card-hover flex items-start gap-4">
+          <img src="images/infosys.png" alt="Infosys logo" class="w-10 h-10 object-contain mt-1">
+          <div class="flex-1">
+            <h4 class="font-semibold text-base mb-1">Computational Theory</h4>
+            <p class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-sm font-semibold">
+              Infosys • 2025
+            </p>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Studied formal languages, automata theory, and computational complexity.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">🧠 Automata, FLAT</p>
           </div>
         </div>
 
-        <!-- NPTEL -->
-        <div class="gradient-border p-6 card-hover group">
-          <h4 class="font-semibold">Privacy in Social Media</h4>
-          <p class="text-gray-400 text-sm">NPTEL • 2025</p>
-
-          <div class="mt-3 text-sm text-gray-400 opacity-0 max-h-0 overflow-hidden 
-                      group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
-            📅 Nov–Dec 2025  
-            <br>🧠 Security, Privacy
+        <div class="cert-card gradient-border p-6 card-hover flex items-start gap-4">
+          <img src="images/nptel.png" alt="NPTEL logo" class="w-10 h-10 object-contain mt-1">
+          <div class="flex-1">
+            <h4 class="font-semibold text-base mb-1">Privacy in Social Media</h4>
+            <p class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-sm font-semibold">
+              NPTEL • 2025
+            </p>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Learned about privacy concerns and security measures in social media platforms.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">🧠 Security, Privacy</p>
           </div>
         </div>
 
-        <!-- Networking -->
-        <div class="gradient-border p-6 card-hover group">
-          <h4 class="font-semibold">Network Communication</h4>
-          <p class="text-gray-400 text-sm">Coursera • 2024</p>
-
-          <div class="mt-3 text-sm text-gray-400 opacity-0 max-h-0 overflow-hidden 
-                      group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
-            📅 Oct 2024  
-            <br>🧠 Networking
+        <div class="cert-card gradient-border p-6 card-hover flex items-start gap-4">
+          <img src="images/coursera.png" alt="Coursera logo" class="w-10 h-10 object-contain mt-1">
+          <div class="flex-1">
+            <h4 class="font-semibold text-base mb-1">Network Communication</h4>
+            <p class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-sm font-semibold">
+              Coursera • 2024
+            </p>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Understood network protocols, communication systems, and data transmission.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">🧠 Networking</p>
           </div>
         </div>
 
-        <!-- Data Structures -->
-        <div class="gradient-border p-6 card-hover group">
-          <h4 class="font-semibold">OOP, DSA & Java</h4>
-          <p class="text-gray-400 text-sm">Datapro • 2024</p>
-
-          <div class="mt-3 text-sm text-gray-400 opacity-0 max-h-0 overflow-hidden 
-                      group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
-            📅 July 2024  
-            <br>🧠 OOP, DSA
+        <div class="cert-card gradient-border p-6 card-hover flex items-start gap-4">
+          <img src="images/datapro.png" alt="Datapro logo" class="w-10 h-10 object-contain mt-1">
+          <div class="flex-1">
+            <h4 class="font-semibold text-base mb-1">OOP, DSA & Java</h4>
+            <p class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-sm font-semibold">
+              Datapro • 2024
+            </p>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Mastered object-oriented programming, data structures, and Java implementation.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">🧠 OOP, DSA</p>
           </div>
         </div>
 
-        <!-- C & Python -->
-        <div class="gradient-border p-6 card-hover group">
-          <h4 class="font-semibold">Programming in C & Python</h4>
-          <p class="text-gray-400 text-sm">Datapro • 2023</p>
-
-          <div class="mt-3 text-sm text-gray-400 opacity-0 max-h-0 overflow-hidden 
-                      group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500">
-            📅 July 2023  
-            <br>🧠 C, Python
+        <div class="cert-card gradient-border p-6 card-hover flex items-start gap-4">
+          <img src="images/datapro.png" alt="Datapro logo" class="w-10 h-10 object-contain mt-1">
+          <div class="flex-1">
+            <h4 class="font-semibold text-base mb-1">Programming in C & Python</h4>
+            <p class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-sm font-semibold">
+              Datapro • 2023
+            </p>
+            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+              Learned programming fundamentals in C and Python languages.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">🧠 C, Python</p>
           </div>
         </div>
 
@@ -1189,30 +1229,44 @@
         Training
       </h2>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+      <div class="flex justify-center">
 
-        <!-- CipherSchools Training -->
-        <div class="gradient-border p-8 card-hover">
-          <div class="flex items-start gap-4">
+        <div class="gradient-border p-10 card-hover max-w-3xl w-full min-h-[260px] flex flex-col justify-between">
 
+          <div class="flex items-start gap-5">
+
+            <!-- ICON -->
             <div
-              class="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
-              <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+              class="w-16 h-16 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-lg">
+              <i data-lucide="graduation-cap" class="w-8 h-8 text-white"></i>
             </div>
 
+            <!-- CONTENT -->
             <div>
-              <h3 class="font-semibold mb-1">Full Stack Development Training</h3>
-              <p class="text-gray-400 text-sm">CipherSchools</p>
-              <p class="text-gray-500 text-xs mt-1">
-                Completed hands-on full stack development training, building responsive web applications and
-                implementing real-world projects using modern frontend technologies.
+              <h3 class="text-xl font-semibold mb-1">Full Stack Development Training</h3>
+
+              <!-- COMPANY -->
+              <p class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 text-sm font-medium">
+                CipherSchools
               </p>
 
-              <!-- Optional badge -->
-              <span class="tech-badge mt-2 inline-block">Hands-on Training</span>
+              <!-- DESCRIPTION -->
+              <p class="text-gray-400 text-sm mt-4 leading-relaxed max-w-xl">
+                Completed hands-on full stack development training, building responsive web applications and working
+                with modern frontend technologies to develop real-world projects.
+              </p>
             </div>
 
           </div>
+
+          <!-- SKILLS -->
+          <div class="flex flex-wrap gap-3 mt-8">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Responsive Design</span>
+          </div>
+
         </div>
 
       </div>
@@ -1753,6 +1807,18 @@
         ripple.style.top = `${e.clientY - rect.top}px`;
 
         setTimeout(() => ripple.remove(), 600);
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const bars = document.querySelectorAll('.skill-bar');
+
+      bars.forEach((bar, index) => {
+        setTimeout(() => {
+          bar.style.width = bar.dataset.width;
+        }, index * 200);
       });
     });
   </script>
